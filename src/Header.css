@@ -68,3 +68,7 @@
     margin-right: 10px;
     color: white;
 }
+
+div > a {
+    text-decoration: none;
+}
