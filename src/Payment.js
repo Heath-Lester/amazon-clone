@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react'
 import CheckoutProduct from './CheckoutProduct'
 import "./Payment.css"
 import { useStateValue } from "./StateProvider"
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
 import { getBasketTotal } from "./reducer"
 import CurrencyFormat from "react-currency-format"
-import { useHistory } from "react-router"
+import axios from './axios'
 
 
 function Payment() {
