@@ -11,7 +11,6 @@ import axios from './axios'
 
 function Payment() {
     const [{ basket, user }, dispatch] = useStateValue()
-    
     const history = useHistory()
     
     const stripe = useStripe()
