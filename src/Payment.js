@@ -29,9 +29,12 @@ function Payment() {
                 // Stripe expects the total in a currencies subunits
                 url: `/payments/create?total=${getBasketTotal(basket) * 100}`
             })
-            getClientSecret(response.data.clientSecret)
+            setClientSecret(response.data.clientSecret)
         }
+        getClientSecret()
     }, [basket])
+
+    console.log('THE SECRET IS >>>', clientSecret)
 
     const handleSubmit = async (event) => {
         // do all the fancy stripe stuff...
@@ -47,7 +50,7 @@ function Payment() {
             setError(null)
             setProcessing(false)
 
-            history.replaceState('/orders')
+            history.replace('/orders')
         })
 
     }
@@ -115,9 +118,7 @@ function Payment() {
                                     prefix={"$"}
                                 />
                                 <butten disabled={processing || disabled || succeeded}>
-                                    <span>
-                                        {processing ? <p>Processing</p> : "Buy Now"}
-                                    </span>
+                                    <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
                                 </butten>
                             </div>
                             {/* Errors */}
